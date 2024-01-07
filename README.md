@@ -1,1 +1,1 @@
-![ERD](images/Er Diagram.drawio)
+![ERD](images/Er Diagram.drawio.png)
