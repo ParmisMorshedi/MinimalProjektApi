@@ -1,0 +1,294 @@
+Endpoint 1-Get all people in the system
+Call:
+https://localhost:7030/Person
+
+Results:
+[
+	{
+		"id": 1,
+		"firstName": "Parmis",
+		"lastName": "Morshedi",
+		"phoneNumber": "0768459120",
+		"interests": null,
+		"interestLinks": null
+	},
+	{
+		"id": 2,
+		"firstName": " Emily",
+		"lastName": " Davis",
+		"phoneNumber": "0765789341",
+		"interests": null,
+		"interestLinks": null
+	},
+	{
+		"id": 3,
+		"firstName": "Michael",
+		"lastName": "Johnson",
+		"phoneNumber": "0727854578",
+		"interests": null,
+		"interestLinks": null
+	},
+	{
+		"id": 4,
+		"firstName": "Anna",
+		"lastName": "Miller",
+		"phoneNumber": "0743976900",
+		"interests": null,
+		"interestLinks": null
+	},
+	{
+		"id": 5,
+		"firstName": "John",
+		"lastName": "Doe",
+		"phoneNumber": "123456789",
+		"interests": null,
+		"interestLinks": null
+	}
+]
+
+
+Endpoint 2-Get all InterestsPerson associated with a specific person
+Call:
+https://localhost:7030/Interest/4
+Results:
+{
+	"contentType": null,
+	"serializerSettings": null,
+	"statusCode": null,
+	"value": [
+		{
+			"personId": 4,
+			"firstName": "Anna",
+			"lastName": "Miller",
+			"interestId": 5,
+			"interestTitle": "Nature Exploration",
+			"interestDescription": "Discovering the beauty of natural landscapes and wildlife."
+		},
+		{
+			"personId": 4,
+			"firstName": "Anna",
+			"lastName": "Miller",
+			"interestId": 6,
+			"interestTitle": "Ice Hockey Enthusiast",
+			"interestDescription": "Passionate about the excitement of ice hockey matches."
+		}
+	]
+}
+
+
+Endpoint 3-Get all links associated with a specific person  
+Call:
+https://localhost:7030/Links/1
+
+Results:
+[
+	{
+		"personId": 1,
+		"interestId": 1,
+		"url": "https://www.example.com/programming"
+	},
+	{
+		"personId": 1,
+		"interestId": 3,
+		"url": "https://www.example.com/GraphicDesign"
+	},
+	{
+		"personId": 1,
+		"interestId": 5,
+		"url": "https://www.example.com/NatureExploration"
+	}
+]
+
+Endpoint 4-Connect a person to a new interest
+
+Call:
+https://localhost:7030/connectPersonToInterest/4/4
+
+Result:
+201 Created
+
+
+
+Endpoint 5-Insert new links for a specific person and a specific interest 
+Call:
+https://localhost:7030/AddLink
+
+{"PersonId" : "5",
+ "InterestId" : "2",
+ "Url":"https://www.example.com/LanguageLearning"
+}
+
+Results:
+
+{
+	"id": 18,
+	"personId": 5,
+	"interestId": 2,
+	"url": "https://www.example.com/LanguageLearning",
+	"persons": null,
+	"interests": null
+}
+
+Endpoint 6-Get detailed information about a specific person including interests and links
+Call:
+https://localhost:7030/PersonDetails/1
+
+Results:
+{
+	"contentType": null,
+	"serializerSettings": null,
+	"statusCode": null,
+	"value": [
+		{
+			"personId": 1,
+			"firstName": "Parmis",
+			"lastName": "Morshedi",
+			"interestId": 1,
+			"interestTitle": "Programming",
+			"interestDescription": "Coding and development",
+			"url": "https://www.example.com/programming"
+		},
+		{
+			"personId": 1,
+			"firstName": "Parmis",
+			"lastName": "Morshedi",
+			"interestId": 3,
+			"interestTitle": "Graphic Design",
+			"interestDescription": "Creating visually appealing designs for digital and print media.",
+			"url": "https://www.example.com/GraphicDesign"
+		},
+		{
+			"personId": 1,
+			"firstName": "Parmis",
+			"lastName": "Morshedi",
+			"interestId": 5,
+			"interestTitle": "Nature Exploration",
+			"interestDescription": "Discovering the beauty of natural landscapes and wildlife.",
+			"url": "https://www.example.com/NatureExploration"
+		}
+	]
+}
+
+Endpoint 7-Search for persons based on a provided search string
+Call:
+https://localhost:7030/Persons?search=E
+
+Results:
+
+[
+	{
+		"personId": 2,
+		"firstName": " Emily",
+		"lastName": " Davis",
+		"phoneNumber": "0765789341",
+		"interests": [
+			{
+				"interestId": 1,
+				"interestTitle": "Programming",
+				"interestDescription": "Coding and development"
+			},
+			{
+				"interestId": 4,
+				"interestTitle": "Meditation",
+				"interestDescription": "Cultivating mindfulness and inner peace through regular meditation practices."
+			}
+		],
+		"interestLinks": [
+			{
+				"interestLinkId": 4,
+				"url": "https://www.example.com/Programming"
+			},
+			{
+				"interestLinkId": 5,
+				"url": "https://www.example.com/Meditation"
+			},
+			{
+				"interestLinkId": 10,
+				"url": "https://www.example.com/IceHockeyEnthusiast"
+			}
+		]
+	},
+	{
+		"personId": 3,
+		"firstName": "Michael",
+		"lastName": "Johnson",
+		"phoneNumber": "0727854578",
+		"interests": [
+			{
+				"interestId": 1,
+				"interestTitle": "Programming",
+				"interestDescription": "Coding and development"
+			},
+			{
+				"interestId": 4,
+				"interestTitle": "Meditation",
+				"interestDescription": "Cultivating mindfulness and inner peace through regular meditation practices."
+			},
+			{
+				"interestId": 6,
+				"interestTitle": "Ice Hockey Enthusiast",
+				"interestDescription": "Passionate about the excitement of ice hockey matches."
+			}
+		],
+		"interestLinks": [
+			{
+				"interestLinkId": 6,
+				"url": "https://www.example.com/Meditation"
+			},
+			{
+				"interestLinkId": 7,
+				"url": "https://www.example.com/IceHockeyEnthusiast"
+			}
+		]
+	}
+]
+
+
+Endpoint 8-Paginate and retrieve a subset of persons based on search criteria
+Call:
+https://localhost:7030/persons/paginated?Search=P&Page=1&PageSize=4
+
+Results:
+[
+	{
+		"personId": 1,
+		"firstName": "Parmis",
+		"lastName": "Morshedi",
+		"phoneNumber": "0768459120",
+		"interests": [
+			{
+				"interestId": 1,
+				"interestTitle": "Programming",
+				"interestDescription": "Coding and development"
+			},
+			{
+				"interestId": 3,
+				"interestTitle": "Graphic Design",
+				"interestDescription": "Creating visually appealing designs for digital and print media."
+			},
+			{
+				"interestId": 5,
+				"interestTitle": "Nature Exploration",
+				"interestDescription": "Discovering the beauty of natural landscapes and wildlife."
+			}
+		],
+		"interestLinks": [
+			{
+				"interestLinkId": 1,
+				"url": "https://www.example.com/programming"
+			},
+			{
+				"interestLinkId": 2,
+				"url": "https://www.example.com/GraphicDesign"
+			},
+			{
+				"interestLinkId": 3,
+				"url": "https://www.example.com/NatureExploration"
+			}
+		]
+	}
+]
+
+
+
+
