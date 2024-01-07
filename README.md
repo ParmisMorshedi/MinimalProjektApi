@@ -1,1 +1,1 @@
-# MinimalProjektApi
+![ERD](images/Er Diagram.drawio)
