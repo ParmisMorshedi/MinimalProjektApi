@@ -4,8 +4,7 @@ Er Diagram:
 *******************************************************************************************************************************
 
 Uml Diagram
-
-![Uml Diagram drawio](https://github.com/ParmisMorshedi/MinimalProjektApi/assets/146171609/3d9938d2-ab05-4bd4-9aef-a40dd655473d)
+![UML Diagram drawio](https://github.com/ParmisMorshedi/MinimalProjektApi/assets/146171609/7f82d39c-eeab-481b-b535-32ae084efffb)
 
 
 ![Use-Case Diagram drawio](https://github.com/ParmisMorshedi/MinimalProjektApi/assets/146171609/4b5c6e4a-2cfd-4b8a-8a52-86b5e653a7ea)
